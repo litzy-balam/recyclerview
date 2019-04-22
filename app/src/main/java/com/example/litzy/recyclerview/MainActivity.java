@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.gson.Gson;
@@ -79,12 +78,14 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
                 contactList.addAll(items);
                 mAdapter.notifyDataSetChanged();
             }
-            },new Response.ErrorListener(){
-                public void onErrorResponse(VolleyError error){
-                Log.e(TAG,"Error: "+ error.getMessage() );
-                Toast.makeText(getApplicationContext(),"Error: "+error.getMessage(),Toast.LENGTH_SHORT).show();
+            },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
         MyAplication.getmInstance().addToRequestQueue(request);
     }
 
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
 
     @Override
     public void onBackPressed() {
-        if(!searchView.isIconfiedByDefault()){
+        if(!searchView.isIconified()){
             searchView.setIconified(true);
             return;
         }
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
     }
     @Override
     public void onContactSelected(Contact contact) {
-        Toast.makeText(getApplicationContext(),"Selected:"+contact.getName()+","+contact.getPhone(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Selected:"+contact.getName()+","+contact.getPhone(),Toast.LENGTH_LONG).show();
     }
 }
-}
+
