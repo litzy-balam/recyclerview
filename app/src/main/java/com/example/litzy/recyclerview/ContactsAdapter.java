@@ -1,7 +1,7 @@
 package com.example.litzy.recyclerview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyViewHolder>implements Filterable{
-    @NonNull
+
     private  Context context;
     private List<Contact> contactList;
     private List<Contact> contactListFiltered;
@@ -31,7 +31,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name,phone;
         public ImageView thumbnail;
-        public MyViewHolder(@NonNull View view) {
+        public MyViewHolder( View view) {
             super(view);
             name=view.findViewById(R.id.name);
             phone=view.findViewById(R.id.phone);
@@ -46,20 +46,20 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         }
     }
 
-    public ContactsAdapter(@NonNull Context context, List<Contact> contactList, ContactsAdapterListener listener) {
+    public ContactsAdapter(Context context, List<Contact> contactList, ContactsAdapterListener listener) {
         this.context = context;
         this.contactList = contactList;
         this.contactListFiltered = contactListFiltered;
         this.listener = listener;
     }
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View itemView=LayoutInflater.from(parent.getContext()).inflate(R.layout.user_row_item,parent,false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
     final Contact contact=contactListFiltered.get(position);
         holder.name.setText(contact.getName());
         holder.phone.setText(contact.getPhone());
