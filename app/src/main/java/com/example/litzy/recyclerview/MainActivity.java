@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
     private ContactsAdapter mAdapter;
     private SearchView searchView;
 
-    private static final String URL="https://api.androidhive.info/json/contacts.json";
+    private static final String URL="https://puntosingular.xm/json/contacts.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
