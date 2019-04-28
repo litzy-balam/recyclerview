@@ -4,5 +4,5 @@
     <string name="toolbar_title">Contacs</string>
     <string name="action_search">Search</string>
     <string name="search_hint">Type name...</string>
-    <string name="appbar_scrolling_view_behavior">nosequeva</string>
+    <!--<string name="appbar_scrolling_view_behavior">nosequeva</string>-->
 </resources>

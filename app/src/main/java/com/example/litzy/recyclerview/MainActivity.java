@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
     private ContactsAdapter mAdapter;
     private SearchView searchView;
 
-    private static final String URL="http://puntosingular.mx/json/contacts.json";
+    private static final String URL="https://api.androidhive.info/json/contacts.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
                     Toast.makeText(getApplicationContext(), "No se pudo recuperar los datos por favor intente de nuevo.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                Log.d("Array Response ", response.toString());
                 List<Contact> items = new Gson().fromJson(response.toString(), new TypeToken<List<Contact>>() {
                 }.getType());
                 contactList.clear();
